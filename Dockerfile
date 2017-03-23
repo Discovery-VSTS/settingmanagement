@@ -19,4 +19,6 @@ EXPOSE 8000
 
 WORKDIR /usr/src/app/
 
+RUN python manage.py collectstatic --no-input
+
 CMD ["gunicorn", "settingsmanagement.wsgi", "-b", "0.0.0.0:8000"]

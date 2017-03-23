@@ -13,6 +13,9 @@ import logging
 
 
 class TokenStorageViewSet(viewsets.ViewSet):
+    """
+    Get all tokens
+    """
     def list(self, request):
         logging.info('Retrieving everything')
         queryset = TokenStore.objects.all()
@@ -115,6 +118,9 @@ class TokenStorage(APIView):
 
 @api_view(['DELETE'])
 def clear_database(request):
+    """
+    Clear database
+    """
     TokenStore.objects.all().delete()
 
     return Response(data='Clear database', status=HTTP_200_OK)
